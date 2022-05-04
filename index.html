@@ -2,14 +2,75 @@
 <html>
 
 <head>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
+  <script src="JS/aframe-master.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+
+  <script src="JS/highlight.js"></script>
+  <script src="JS/info-panel.js"></script>
 </head>
 
 <body>
-  <a-scene>
-    <a-gltf-model id="scenemodel" src="MAIN.gltf" position="0 0 0" material="shader: flat"></a-gltf-model>
-    <a-gltf-model id="boardmodel" src="Board.gltf" position="0 0 0" material="shader: flat"></a-gltf-model>
-    <a-camera wasd-controls-enabled="false"></a-camera>
+  <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+    info-message="htmlSrc: #messageText">
+    <a-gltf-model id="scenemodel" src="material/MAIN.gltf" position="0 0 0" material="shader: flat"></a-gltf-model>
+    <a-gltf-model id="boardmodel" src="material/Board.gltf" position="0 0 0" material="shader: flat"></a-gltf-model>
+    
+    <a-assets>
+      <img id="homeposter" src="material/homearrow.png" crossorigin="anonymous" />
+      <img id="artposter" src="material/artarrow.png" crossorigin="anonymous" />
+      <img id="movieposter" src="material/moviearrow.png" crossorigin="anonymous" />
+      <a-mixin id="frame" geometry="primitive: plane; width: 1; height: 1"
+        material="transparent: true; shader: flat;opacity:0"
+        animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"></a-mixin>
+      <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
+        material="color: black; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005"></a-mixin>
+    </a-assets>
+
+    <a-entity id="background" position="0 0 0" geometry="primitive: sphere; radius: 2.0"
+      material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false" class="raycastable">
+    </a-entity>
+
+    <a-entity position="0 1.6 0" camera
+      look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
+      <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
+        material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+      </a-entity>
+
+    </a-entity>
+
+    <!-- Hand controls -->
+    <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
+    </a-entity>
+    <a-entity id="ui" position="0 1 -2">
+      <!-- Poster menu -->
+
+      <a-entity id="menu" highlight>
+
+        <a-entity id="GoogleButton" position="0 0 -0.5" mixin="frame" class="raycastable menu-button">
+          <a-entity material="src: #homeposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="TwitterButton" position="-2 0 1.5" rotation="0 90 0" mixin="frame"
+          class="raycastable menu-button">
+          <a-entity material="src: #artposter" mixin="poster"></a-entity>
+        </a-entity>
+        <a-entity id="FacebookButton" position="2 0 1.5" rotation="0 -90 0" mixin="frame"
+          class="raycastable menu-button">
+          <a-entity material="src: #movieposter" mixin="poster"></a-entity>
+        </a-entity>
+      </a-entity>
+      <a-camera position="0 0.5 2" wasd-controls-enabled="false">
+      
+        
+          <a-entity id="tutorial" position="0 0 -0.5" to-link visible="true" scale="1 1 1"
+            geometry="primitive: plane; width: 0.3; height: 0.5"
+            material="color: #333333; shader: flat; transparent: true;opacity:0.5" class="raycastable">></a-entity>
+        
+      
+    </a-entity>
+  </a-camera>
   </a-scene>
   <script>
     var scene = document.getElementById('scenemodel');
