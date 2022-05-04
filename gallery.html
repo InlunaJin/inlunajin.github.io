@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
+
+
+    <script src="JS/aframe-master.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+
+    <script src="JS/highlight.js"></script>
+    <script src="JS/changemodel.js"></script>
+</head>
+
+<body>
+    <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+        info-message="htmlSrc: #messageText">
+        <a-gltf-model id="scenemodel" src="material/Gallery.gltf" position="0 0 0" material="shader: flat" ></a-gltf-model>
+        <a-gltf-model id="modelloc" src="monkey.gltf" position="0 2 -5" material = "shader:flat;side:back"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000;easing: linear"></a-gltf-model>
+        <a-assets>
+            <img id="Aposter" src="Test.png" crossorigin="anonymous" />
+            <a-mixin id="frame" geometry="primitive: plane; width: 1; height: 1" material="color: white; shader: flat">
+            </a-mixin>
+            <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1" material="color: white; shader: flat"
+                material="shader: flat" position="0 0 0.005"></a-mixin>
+           
+             
+        </a-assets>
+
+        <a-text mixin="text" position="0 1 -2" wrap-count="10" ></a-text>
+        <a-entity id="background" position="0 0 0" geometry="primitive: sphere; radius: 2.0"
+            material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false"
+            class="raycastable">
+        </a-entity>
+
+        <a-entity position="0 1.6 0" camera
+            look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
+            <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
+                material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+            </a-entity>
+
+        </a-entity>
+
+        <!-- Hand controls -->
+        <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+        <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
+        </a-entity>
+        <a-entity id="ui" position="0 1 -2.5">
+            <!-- Poster menu -->
+
+            <a-entity id="menu" highlight>
+
+
+                <a-entity id="goodmonkey" position="-1 0 0" mixin="frame" class="raycastable menu-button">
+                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="badmonkey" position="1 0 0" mixin="frame" class="raycastable menu-button">
+                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="tolink" position="0 0 0.5" change-model visible="false" scale="0.001 0.001 0.001" </a-entity>
+
+            </a-entity>
+    </a-scene>
+</body>
+
+</html>

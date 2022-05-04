@@ -8,7 +8,7 @@ AFRAME.registerComponent('to-link', {
        link:'http://www.google.com' 
       },
       TwitterButton: {
-        link:'/artthings.html' 
+        link:'/gallery.html' 
        },
        FacebookButton: {
         link:'https://www.facebook.com' 
