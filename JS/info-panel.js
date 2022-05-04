@@ -12,7 +12,9 @@ AFRAME.registerComponent('to-link', {
        },
        FacebookButton: {
         link:'https://www.facebook.com' 
-       },
+       }, TutorialButton: {
+        link:'none'
+      },
     };
 
     this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
@@ -31,7 +33,16 @@ AFRAME.registerComponent('to-link', {
   onMenuButtonClick: function (evt) {
 
     var SelectPage = this.LinkBut[evt.currentTarget.id];
-    window.location.href = SelectPage.link;
+    if(SelectPage.link =='none')
+    {
+      
+      this.tutorialBut = document.querySelector('#TutorialButton');
+      evt.currentTarget.object3D.visible = false;
+    }
+    else{
+      window.location.href = SelectPage.link;
+    }
+    
   },
 
   onBackgroundClick: function (evt) {
