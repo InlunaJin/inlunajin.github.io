@@ -70,9 +70,9 @@
       <a-camera position="0 0.5 2" wasd-controls-enabled="false">
       
         <a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button">
-          <a-entity material="src: #tutorialposter" mixin="tutorialimage"></a-entity>
+          <a-entity id = "TurPoster" material="src: #tutorialposter"  mixin="tutorialimage"></a-entity>
         </a-entity>
-          <a-entity id="tutorial" position="0 0 -0.5" to-link visible="false" scale="1 1 1"
+          <a-entity id="tutorial" position="0 0 1" to-link visible="false" scale="1 1 1"
             geometry="primitive: plane; width: 0.3; height: 0.5"
             material="color: #333333; shader: flat; transparent: true;opacity:0.5" class="raycastable">></a-entity>
         
@@ -85,14 +85,14 @@
 
     scene.addEventListener('object3dset', () => {
 
-      const mesh = office.getObject3D('mesh');
+      const mesh = scene.getObject3D('mesh');
       mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
     });
     var myboard = document.getElementById('boardmodel');
 
     myboard.addEventListener('object3dset', () => {
 
-      const mesh = office.getObject3D('mesh');
+      const mesh = myboard.getObject3D('mesh');
       mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
     });
   </script>
