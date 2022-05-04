@@ -36,8 +36,8 @@ AFRAME.registerComponent('to-link', {
     if(SelectPage.link =='none')
     {
       
-      document.querySelector('#TutorialButton').object3D.position.set (0, 0, -3);
-      document.querySelector('#TurPoster').object3D.scale.set (2, 2, 2);
+      document.querySelector('#TutorialButton').object3D.position.set (0, 0, 3);
+      document.querySelector('#TurPoster').object3D.scale.set (1, 1, 1);
       //evt.currentTarget.object3D.scale.set (2, 2, 2);
       
      // evt.currentTarget.object3D.visible = false;
