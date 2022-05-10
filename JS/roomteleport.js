@@ -4,7 +4,7 @@ AFRAME.registerComponent('teleport', {
       var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
       this.LinkBut = {
         ExitButton: {
-         link:'/room.html' 
+         link:'/index.html' 
         },
         GalleryButton: {
           link:'/gallery.html' 

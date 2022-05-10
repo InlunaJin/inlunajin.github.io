@@ -7,7 +7,7 @@
   <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
 
   <script src="JS/highlight.js"></script>
-  <script src="JS/info-panel.js"></script>
+  <script src="JS/roomteleport.js"></script>
 </head>
 <body>
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
@@ -32,10 +32,10 @@
         <a-entity id="ExitButton" position="-2.5 1 -0.5" rotation = "0 90 0" scale = "0.8 0.8 0.8" mixin="frame" class="raycastable menu-button">
             <a-entity material="src: #exitposter" mixin="poster"></a-entity>
          </a-entity>
-         <a-entity id="artButton" position="-0.5 1 -0.45" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
+         <a-entity id="GalleryButton" position="-0.5 1 -0.45" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
             <a-entity material="src: #artposter" mixin="poster"></a-entity>
          </a-entity>
-         <a-entity id="movieButton" position="-0.45 1 -0.65" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
+         <a-entity id="TheaterButton" position="-0.45 1 -0.65" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
             <a-entity material="src: #movieposter" mixin="poster"></a-entity>
          </a-entity>
           <a-entity position="0 1.2 -0.3" camera
@@ -45,6 +45,9 @@
             </a-entity>
 
         </a-entity>
+        <a-entity id="jstri" position="0 0 1" teleport visible="false" scale="1 1 1"
+            geometry="primitive: plane; width: 0.3; height: 0.5"
+            material="color: #333333; shader: flat; transparent: true;opacity:0.5" class="raycastable">></a-entity>
     </a-scene>
 </body>
 </html>
