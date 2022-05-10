@@ -11,7 +11,7 @@ AFRAME.registerComponent('to-link', {
         link:'/gallery.html' 
        },
        TheaterButton: {
-        link:'https://www.facebook.com' 
+        link:'/theater.html' 
        }, TutorialButton: {
         link:'none'
       },

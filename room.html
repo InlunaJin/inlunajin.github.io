@@ -13,7 +13,38 @@
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       info-message="htmlSrc: #messageText">
       <a-gltf-model id="scenemodel" src="material/Room.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
-      <a-camera position="0 1.2 -0.3"  wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false">"
+     
+        <a-assets>
+        <img id="exitposter" src="material/exitarrow.png" crossorigin="anonymous" />
+        <img id="artposter" src="material/artarrow.png" crossorigin="anonymous" />
+        <img id="movieposter" src="material/moviearrow.png" crossorigin="anonymous" />
+        <a-mixin id="frame" geometry="primitive: plane; width: 1; height: 1"
+        material="transparent: true; shader: flat;opacity:0"
+        animation__scale="property: scale; to: 1 1 1; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 0.8 0.8 0.8; dur: 200; startEvents: mouseleave"></a-mixin>
+        <a-mixin id="tinyframe" geometry="primitive: plane; width: 1; height: 1"
+        material="transparent: true; shader: flat;opacity:0"
+        animation__scale="property: scale; to: 0.15 0.15 0.15; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 0.1 0.1 0.1; dur: 200; startEvents: mouseleave"></a-mixin>
+      <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
+        material="color: black; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005"></a-mixin>
+        </a-assets>
+        <a-entity id="ExitButton" position="-2.5 1 -0.5" rotation = "0 90 0" scale = "0.8 0.8 0.8" mixin="frame" class="raycastable menu-button">
+            <a-entity material="src: #exitposter" mixin="poster"></a-entity>
+         </a-entity>
+         <a-entity id="artButton" position="-0.5 1 -0.45" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
+            <a-entity material="src: #artposter" mixin="poster"></a-entity>
+         </a-entity>
+         <a-entity id="movieButton" position="-0.45 1 -0.65" rotation = "0 60 0" scale = "0.1 0.1 0.1" mixin="tinyframe" class="raycastable menu-button">
+            <a-entity material="src: #movieposter" mixin="poster"></a-entity>
+         </a-entity>
+          <a-entity position="0 1.2 -0.3" camera
+            look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
+            <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
+                material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+            </a-entity>
+
+        </a-entity>
     </a-scene>
 </body>
 </html>
