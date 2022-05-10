@@ -4,6 +4,9 @@ AFRAME.registerComponent('change-model', {
       var buttonEls = document.querySelectorAll('.menu-button');
       var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
       this.ModelBut = {
+        ExitButton:{
+          modelname:'/index.html' 
+        },
         goodmonkey: {
          modelname:'monkey.gltf'  
         },
@@ -26,9 +29,17 @@ AFRAME.registerComponent('change-model', {
     },
   
     onMenuButtonClick: function (evt) {
+     
       var modellocation = document.getElementById('modelloc');
       var SelectModel = this.ModelBut[evt.currentTarget.id];
-      modellocation.setAttribute('gltf-model',SelectModel.modelname);
+      if(evt.currentTarget.id == 'ExitButton')
+      {
+        window.location.href = SelectModel.modelname;
+      }
+      else{
+        modellocation.setAttribute('gltf-model',SelectModel.modelname);
+      }
+     
       
     },
   

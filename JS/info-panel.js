@@ -4,13 +4,13 @@ AFRAME.registerComponent('to-link', {
     var buttonEls = document.querySelectorAll('.menu-button');
     var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
     this.LinkBut = {
-      GoogleButton: {
-       link:'http://www.google.com' 
+      RoomButton: {
+       link:'/room.html' 
       },
-      TwitterButton: {
+      GalleryButton: {
         link:'/gallery.html' 
        },
-       FacebookButton: {
+       TheaterButton: {
         link:'https://www.facebook.com' 
        }, TutorialButton: {
         link:'none'
