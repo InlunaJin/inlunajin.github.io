@@ -15,9 +15,29 @@
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText">
         <a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairA" src="material/TheaterChair.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairF" src="material/TheaterChair.glb" position="0 -1.5 -6.25" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairB" src="material/TheaterChair.glb" position="0 -0.3 -1.25" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairC" src="material/TheaterChair.glb" position="0 -0.6 -2.5" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairD" src="material/TheaterChair.glb" position="0 -0.9 -3.75" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairE" src="material/TheaterChair.glb" position="0 -1.2 -5" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairG" src="material/TheaterChair.glb" position="0 -1.8 -7.5" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="chairH" src="material/TheaterChair.glb" position="0 -2.1 -8.75" material="shader: flat"></a-gltf-model>
+        <a-entity light="type: point; color: #FFF; intensity: 1.5" position="0 50 0"></a-entity>
         <a-camera  wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false">"
         </a-camera>
+        
     </a-scene>
+    <script>
+        var scene = document.getElementById('scenemodel');
+    
+        scene.addEventListener('object3dset', () => {
+    
+          const mesh = scene.getObject3D('mesh');
+          mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
+        });
+        
+      </script>
 </body>
 
 </html>
