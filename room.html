@@ -5,11 +5,26 @@
   <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
   <script src="JS/aframe-master.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="JS/highlight.js"></script>
   <script src="JS/roomteleport.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>關於我</title>
+  <script> function Popout() {
+    Swal.fire(
+      {
+        icon: 'info',
+        title: '歡迎來到我的房間',
+        html: '本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待',
+        footer: '使用行動數據請注意流量'
+      }
+
+    )
+  } </script>
+<link href="popoutstyle.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+
+<body onload=" Popout()">
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       info-message="htmlSrc: #messageText">
       <a-gltf-model id="scenemodel" src="material/Room.glb" position="0 0 0" material="shader: flat"></a-gltf-model>

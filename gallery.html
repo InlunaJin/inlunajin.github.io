@@ -8,12 +8,25 @@
     <script src="JS/aframe-master.js"></script>
     <script
         src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="JS/highlight.js"></script>
     <script src="JS/changemodel.js"></script>
+    <title>3D/2D作品紀錄</title>
+    <script> function Popout() {
+            Swal.fire(
+                {
+                    icon: 'info',
+                    title: '歡迎來到美術館',
+                    html: '本網頁包含大量模型<br>切換模型時讀取會花費較長時間<br>請耐心等待',
+                    footer: '使用行動數據請注意流量'
+                }
+
+            )
+        } </script>
+    <link href="popoutstyle.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body onload=" Popout()">
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText">
         <a-gltf-model id="scenemodel" src="material/Gallery.glb" position="0 0 0" material="shader: flat">
@@ -51,7 +64,7 @@
             </a-entity>
 
         </a-entity>
-        <a-entity id="ExitButton" position="0 1 2" rotation = "0 180 0" mixin="Exitframe" class="raycastable menu-button">
+        <a-entity id="ExitButton" position="0 1 2" rotation="0 180 0" mixin="Exitframe" class="raycastable menu-button">
             <a-entity material="src: #Exitimg" mixin="Exitposter"></a-entity>
         </a-entity>
 
