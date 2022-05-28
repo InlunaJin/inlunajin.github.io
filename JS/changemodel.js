@@ -39,8 +39,7 @@ AFRAME.registerComponent('change-model', {
       else{
         modellocation.setAttribute('gltf-model',SelectModel.modelname);
       }
-     
-      
+
     },
   
     onBackgroundClick: function (evt) {

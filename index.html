@@ -8,7 +8,19 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="JS/highlight.js"></script>
   <script src="JS/info-panel.js"></script>
+  <script src="JS/popout.js"></script>
   <title>林迺鈞的作品集</title>
+  <script type="text/javascript">
+    window.onload=function(){
+      Swal.fire(
+        {
+          icon: 'info',
+          title: '歡迎進入林迺鈞的作品集',
+          html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待</b>',
+          footer: '使用行動數據請注意流量'
+        }
+    )}
+    </script>
   <script> function Popout() {
       Swal.fire(
         {
@@ -20,14 +32,17 @@
 
       )
     } </script>
+    
   <link href="popoutstyle.css" rel="stylesheet" type="text/css">
+  
 </head>
 
 <body>
   
   <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
-    info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
+    info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false" >
     <a-gltf-model id="scenemodel" src="material/MAIN.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
+   
     <!-a-gltf-model id="boardmodel" src="material/Board.gltf" position="0 0 0" material="shader: flat">
       <-- /a-gltf-model>
 
@@ -89,11 +104,12 @@
             <a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button">
               <a-entity id="TurPoster" material="src: #tutorialposter" mixin="tutorialimage"></a-entity>
             </a-entity>
-            <a-entity id="tutorial" position="0 0 1" to-link visible="false" scale="1 1 1"
+            <a-entity id="tutorial" position="0 0 1" to-link  visible="false" scale="1 1 1"
               geometry="primitive: plane; width: 0.3; height: 0.5"
               material="color: #333333; shader: flat; transparent: true;opacity:0.5" class="raycastable">></a-entity>
 
-
+            
+              
         </a-entity>
         </a-camera>
   </a-scene>
@@ -113,6 +129,7 @@
       mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
     });
   </script>
+  
 </body>
 
 </html>
