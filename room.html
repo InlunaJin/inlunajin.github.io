@@ -9,22 +9,41 @@
   <script src="JS/highlight.js"></script>
   <script src="JS/roomteleport.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>關於我</title>
-  <script> function Popout() {
-    Swal.fire(
+  <title>關於我</title><script type="text/javascript">
+    window.onload=function(){
+    
+     const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+    let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
+    if(isMobileDevice)
+    {
+      setTimeout(function(){Swal.fire(
       {
         icon: 'info',
         title: '歡迎來到我的房間',
         html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待</b>',
         footer: '使用行動數據請注意流量'
       }
+      )},1500);
+    }
+    else{
+       
+      setTimeout(function(){Swal.fire(
+      {
+        icon: 'info',
+        title: '歡迎來到我的房間',
+        html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待</b>',
+        footer: '使用行動數據請注意流量'
+      }
+      )},500);
+     
+    }
+    }
+    </script>
 
-    )
-  } </script>
 <link href="popoutstyle.css" rel="stylesheet" type="text/css">
 </head>
 
-<body onload=" Popout()">
+<body>
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
       <a-gltf-model id="scenemodel" src="material/Room.glb" position="0 0 0" material="shader: flat"></a-gltf-model>

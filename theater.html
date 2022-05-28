@@ -9,21 +9,43 @@
     <script src="JS/highlight.js"></script>
     <script src="JS/changevideo.js"></script>
     <title>作品影像紀錄</title>
-    <script> function Popout() {
-        Swal.fire(
+    <script type="text/javascript">
+        window.onload=function(){
+        
+         const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+        let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
+        if(isMobileDevice)
+        {
+          setTimeout(function(){Swal.fire(
           {
+            
             icon: 'info',
             title: '歡迎來到電影院',
             html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單</b>',
             footer: '使用行動數據請注意流量'
           }
-  
-        )
-      } </script>
+          )},1500);
+        }
+        else{
+           
+          setTimeout(function(){Swal.fire(
+          {
+           
+            icon: 'info',
+            title: '歡迎來到電影院',
+            html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單</b>',
+            footer: '使用行動數據請注意流量'
+          }
+          )},500);
+         
+        }
+        }
+        </script>
+    
     <link href="popoutstyle.css" rel="stylesheet" type="text/css">
   </head>
   
-  <body onload=" Popout()">
+  <body>
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
         <a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
