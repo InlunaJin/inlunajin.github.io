@@ -1,4 +1,6 @@
-
+AFRAME.registerComponent('popp', {
+    init: function () {
+     
    Swal.fire(
     {
       icon: 'info',
@@ -8,4 +10,5 @@
     }
 
   )
-
+}
+});
