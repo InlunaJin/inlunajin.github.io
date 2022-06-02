@@ -31,13 +31,22 @@ AFRAME.registerComponent('change-model', {
     onMenuButtonClick: function (evt) {
      
       var modellocation = document.getElementById('modelloc');
+      var imagelocation = document.getElementById('imageloc');
       var SelectModel = this.ModelBut[evt.currentTarget.id];
+      
       if(evt.currentTarget.id == 'ExitButton')
       {
         window.location.href = SelectModel.modelname;
       }
-      else{
-        modellocation.setAttribute('gltf-model',SelectModel.modelname);
+      else if(evt.currentTarget.id.substring(0,1)=="i")
+      {
+        modellocation.setAttribute('visible','false');
+        imagelocation.setAttribute('visible','true');
+      }
+      else if(evt.currentTarget.id.substring(0,1)=="m")
+      {modellocation.setAttribute('visible','true');
+      imagelocation.setAttribute('visible','false');
+        modellocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
       }
 
     },
