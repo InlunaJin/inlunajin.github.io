@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>-->
     <script src="JS/aframe-master.js"></script>
     <script
         src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="JS/highlight.js"></script>
     <script src="JS/changevideo.js"></script>
     <title>作品影像紀錄</title>
     <script type="text/javascript">
-        window.onload=function(){
-        
-         const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-        let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
-        if(isMobileDevice)
-        {
-          setTimeout(function(){Swal.fire(
-          {
-            
-            icon: 'info',
-            title: '歡迎來到電影院',
-            html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-            footer: '使用行動數據請注意流量'
-          }
-          )},1500);
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
         }
-        else{
-           
-          setTimeout(function(){Swal.fire(
-          {
-           
-            icon: 'info',
-            title: '歡迎來到電影院',
-            html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-            footer: '使用行動數據請注意流量'
-          }
-          )},500);
-         
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("inlunajin_theater");
+            if (cookiename != "") {
+
+            } else {
+                cookiename = "come1hour";
+                if (cookiename != "" && cookiename != null) {
+                    const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+                    let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
+                    if (isMobileDevice) {
+                        setTimeout(function () {
+                            Swal.fire(
+                                {
+                                    icon: 'info',
+                                    title: '歡迎來到電影院',
+                                    html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                                    footer: '使用行動數據請注意流量'
+                                }
+                            )
+                        }, 1500);
+                    }
+                    else {
+
+                        setTimeout(function () {
+                            Swal.fire(
+                                {
+                                    icon: 'info',
+                                    title: '歡迎來到電影院',
+                                    html: '<b>本網頁包含大量影片<br>切換影片時讀取會花費較長時間<br>請耐心等待<br>或點擊下方按鈕進入Youtube撥放清單<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                                    footer: '使用行動數據請注意流量'
+                                }
+                            )
+                        }, 500);
+
+                    }
+                    setCookie("inlunajin_theater", cookiename, 1);
+                }
+            }
         }
-        }
-        </script>
-    
+
+    </script>
+
     <link href="popoutstyle.css" rel="stylesheet" type="text/css">
-  </head>
-  
-  <body>
+</head>
+
+<body>
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
-        <a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 0 0" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.5 -6.25" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.3 -1.25" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.6 -2.5" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.9 -3.75" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.2 -5" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.8 -7.5" material="shader: flat"></a-gltf-model>
-        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -2.1 -8.75" material="shader: flat"></a-gltf-model>
+        <a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 0 0" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.5 -6.25" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.3 -1.25" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.6 -2.5" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -0.9 -3.75" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.2 -5" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -1.8 -7.5" material="shader: flat">
+        </a-gltf-model>
+        <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -2.1 -8.75" material="shader: flat">
+        </a-gltf-model>
         <a-entity light="type: point; color: #FFF; intensity: 1.5" position="0 50 0"></a-entity>
-        <a-camera  wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false">"
+        <a-camera wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false">"
         </a-camera>
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
@@ -78,62 +113,64 @@
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
         </a-assets>
         <a-entity id="background" position="0 0 0" geometry="primitive: sphere; radius: 2.0"
-        material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false"
-        class="raycastable">
-    </a-entity>
-
-    <a-entity position="0 1.6 0" camera
-        look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
-        <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
-            material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+            material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false"
+            class="raycastable">
         </a-entity>
 
-    </a-entity>
-    <a-entity id="ExitButton" position="5.5 0.5 -3" rotation="0 -90 0" mixin="Exitframe" class="raycastable menu-button">
-        <a-entity material="src: #Exitimg" mixin="Exitposter"></a-entity>
-    </a-entity>
-    <a-entity id="ExitButton" position="-5.5 0.5 -3" rotation="0 90 0" mixin="Exitframe" class="raycastable menu-button">
-        <a-entity material="src: #Exitimg" mixin="Exitposter"></a-entity>
-    </a-entity>
-
-    <!-- Hand controls -->
-    <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
-    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
-    </a-entity>
-    <a-entity id="ui" position="1.127 1.98 -7">
-        <!-- Poster menu -->
-
-        <a-entity id="menu" rotation="0 -30 0" highlight>
-
-
-            <a-entity id="goodmonkey" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1"
-                class="raycastable menu-button">
-                <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+        <a-entity position="0 1.6 0" camera
+            look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
+            <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
+                material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
             </a-entity>
-            <a-entity id="badmonkey" position="1 0 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+
+        </a-entity>
+        <a-entity id="ExitButton" position="5.5 0.5 -3" rotation="0 -90 0" mixin="Exitframe"
+            class="raycastable menu-button">
+            <a-entity material="src: #Exitimg" mixin="Exitposter"></a-entity>
+        </a-entity>
+        <a-entity id="ExitButton" position="-5.5 0.5 -3" rotation="0 90 0" mixin="Exitframe"
+            class="raycastable menu-button">
+            <a-entity material="src: #Exitimg" mixin="Exitposter"></a-entity>
+        </a-entity>
+
+        <!-- Hand controls -->
+        <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+        <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
+        </a-entity>
+        <a-entity id="ui" position="1.127 1.98 -7">
+            <!-- Poster menu -->
+
+            <a-entity id="menu" rotation="0 -30 0" highlight>
+
+
+                <a-entity id="goodmonkey" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="badmonkey" position="1 0 0" mixin="frame" class="raycastable menu-button">
+                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="tolink" position="0 0 0.5" change-video visible="false" scale="0.001 0.001 0.001">
+
+            </a-entity>
+            <a-entity id="tell" material="src: #Description" mixin="manual" position="-1.50 0 0" rotation="0 30 0">
             </a-entity>
         </a-entity>
 
-        <a-entity id="tolink" position="0 0 0.5" change-video visible="false" scale="0.001 0.001 0.001">
 
-        </a-entity>
-        <a-entity id="tell" material="src: #Description" mixin="manual" position="-1.50 0 0" rotation="0 30 0">
-        </a-entity>
-    </a-entity>
-   
-        
     </a-scene>
     <script>
         var scene = document.getElementById('scenemodel');
-    
+
         scene.addEventListener('object3dset', () => {
-    
-          const mesh = scene.getObject3D('mesh');
-          mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
+
+            const mesh = scene.getObject3D('mesh');
+            mesh.children[0].material = new THREE.MeshBasicMaterial({ map: mesh.children[0].material.map });
         });
-        
-      </script>
+
+    </script>
 </body>
 
 </html>

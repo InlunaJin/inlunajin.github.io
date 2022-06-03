@@ -13,37 +13,61 @@
     <script src="JS/changemodel.js"></script>
     <title>3D/2D作品紀錄</title>
     <script type="text/javascript">
-        window.onload = function () {
-
-            const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-            let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
-            if (isMobileDevice) {
-                setTimeout(function () {
-                    Swal.fire(
-                        {
-                            icon: 'info',
-                            title: '歡迎來到美術館',
-                            html: '<b>本網頁包含大量模型<br>切換模型時讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-                            footer: '使用行動數據請注意流量'
-                        }
-                    )
-                }, 1500);
+        function setCookie(cname, cvalue, exhour) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        } function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
             }
-            else {
+            return "";
+        }
+        window.onload = function checkCookie() {
+            var cookiename = getCookie("inlunajin_gallery");
+            if (cookiename != "") {
 
-                setTimeout(function () {
-                    Swal.fire(
-                        {
-                            icon: 'info',
-                            title: '歡迎來到美術館',
-                            html: '<b>本網頁包含大量模型<br>切換模型時讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-                            footer: '使用行動數據請注意流量'
-                        }
-                    )
-                }, 500);
+            } else {
+                cookiename = "come1hour";
+                if (cookiename != "" && cookiename != null) {
+                    const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+                    let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
+                    if (isMobileDevice) {
+                        setTimeout(function () {
+                            Swal.fire(
+                                {
+                                    icon: 'info',
+                                    title: '歡迎來到美術館',
+                                    html: '<b>本網頁包含大量模型<br>切換模型時讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                                    footer: '使用行動數據請注意流量'
+                                }
+                            )
+                        }, 1500);
+                    }
+                    else {
 
+                        setTimeout(function () {
+                            Swal.fire(
+                                {
+                                    icon: 'info',
+                                    title: '歡迎來到美術館',
+                                    html: '<b>本網頁包含大量模型<br>切換模型時讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                                    footer: '使用行動數據請注意流量'
+                                }
+                            )
+                        }, 500);
+
+                    }
+                    setCookie("inlunajin_gallery", cookiename, 1);
+                }
             }
         }
+
     </script>
 
     <link href="popoutstyle.css" rel="stylesheet" type="text/css">
@@ -60,10 +84,10 @@
         <a-entity light="type: point; intensity: 0.5; distance: 10; decay: 5" position="0 0.2 -1.5"></a-entity>
         <a-gltf-model id="modelloc" src="material/gallery/monkey.gltf" position="0 0.15 -3" scale="1.2 1.2 1.2"
             material="shader:flat;side:back"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000;easing: linear" visible = 'false'></a-gltf-model>
-        <a-gltf-model id="imageloc" src="material/gallery/Startboard.glb" position="0 0.15 -3" rotation = "0 -90 0" scale="1 1 1"
-            material="shader:flat;side:back"
-            ></a-gltf-model>
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 30000;easing: linear" visible='false'>
+        </a-gltf-model>
+        <a-gltf-model id="imageloc" src="material/gallery/Startboard.glb" position="0 0.15 -3" rotation="0 -90 0"
+            scale="1 1 1" material="shader:flat;side:back"></a-gltf-model>
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
             <a-mixin id="Exitframe" geometry="primitive: plane; width: 1; height: 1"
@@ -109,7 +133,8 @@
             <a-entity id="menu" rotation="0 -30 0" highlight>
 
 
-                <a-entity id="m_ahri" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1" class="raycastable menu-button">
+                <a-entity id="m_ahri" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1"
+                    class="raycastable menu-button">
                     <a-entity material="src: #Aposter" mixin="poster"></a-entity>
                 </a-entity>
                 <a-entity id="m_cage" position="0 -0.1 0" mixin="frame" scale="0.1 0.1 0.1"

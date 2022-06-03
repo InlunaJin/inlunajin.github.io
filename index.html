@@ -11,37 +11,61 @@
 
   <title>林迺鈞的作品集</title>
   <script type="text/javascript">
-    window.onload = function () {
-
-      const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-      let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
-      if (isMobileDevice) {
-        setTimeout(function () {
-          Swal.fire(
-            {
-              icon: 'info',
-              title: '歡迎進入林迺鈞的作品集',
-              html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-              footer: '使用行動數據請注意流量'
-            }
-          )
-        }, 1500);
+    function setCookie(cname, cvalue, exhour) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + "; " + expires;
+    } function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0)
+          return c.substring(name.length, c.length);
       }
-      else {
+      return "";
+    }
+    window.onload = function checkCookie() {
+      var cookiename = getCookie("inlunajin_index");
+      if (cookiename != "") {
 
-        setTimeout(function () {
-          Swal.fire(
-            {
-              icon: 'info',
-              title: '歡迎進入林迺鈞的作品集',
-              html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-              footer: '使用行動數據請注意流量'
-            }
-          )
-        }, 500);
+      } else {
+        cookiename = "come1hour";
+        if (cookiename != "" && cookiename != null) {
+          const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+          let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
+          if (isMobileDevice) {
+            setTimeout(function () {
+              Swal.fire(
+                {
+                  icon: 'info',
+                  title: '歡迎進入林迺鈞的作品集',
+                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                  footer: '使用行動數據請注意流量'
+                }
+              )
+            }, 1500);
+          }
+          else {
 
+            setTimeout(function () {
+              Swal.fire(
+                {
+                  icon: 'info',
+                  title: '歡迎進入林迺鈞的作品集',
+                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
+                  footer: '使用行動數據請注意流量'
+                }
+              )
+            }, 500);
+
+          }
+          setCookie("inlunajin_index", cookiename, 1);
+        }
       }
     }
+
   </script>
 
 
