@@ -93,8 +93,7 @@
         <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 -2.1 -8.75" material="shader: flat">
         </a-gltf-model>
         <a-entity light="type: point; color: #FFF; intensity: 1.5" position="0 50 0"></a-entity>
-        <a-camera wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false">"
-        </a-camera>
+        
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
             <a-mixin id="Exitframe" geometry="primitive: plane; width: 1; height: 1"
@@ -117,8 +116,9 @@
             class="raycastable">
         </a-entity>
 
+
         <a-entity position="0 1.6 0" camera
-            look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true">
+            look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true">
             <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
                 material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
             </a-entity>
