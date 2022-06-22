@@ -74,6 +74,35 @@
 </head>
 
 <body>
+    <script type="text/javascript">AFRAME.registerComponent('unlit', {
+
+    init: function () {
+
+        function recursivelySetChildrenUnlit(mesh) {
+
+            if (mesh.material && mesh.material.map) {
+                mesh.material = new THREE.MeshBasicMaterial({ map: mesh.material.map });
+            }
+
+            if (mesh.children) {
+                for (var i = 0; i < mesh.children.length; i++) {
+                    recursivelySetChildrenUnlit(mesh.children[i]);
+                }
+            }
+        }
+
+        this.el.addEventListener('model-loaded', (e) => {
+
+            const mesh = e.target.getObject3D('mesh');
+            for (var i = 0; i < mesh.children.length; i++) {
+                recursivelySetChildrenUnlit(mesh.children[i]);
+            }
+
+        });
+    }
+});</script>
+    
+    
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
         <a-gltf-model id="scenemodel" src="material/Gallery.glb" position="0 0 0" material="shader: flat">
@@ -86,7 +115,7 @@
             material="shader:flat;side:back"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 30000;easing: linear" visible='false'>
         </a-gltf-model>
-        <a-gltf-model id="imageloc" src="material/gallery/Startboard.glb" position="0 0.15 -3" rotation="0 -90 0"
+        <a-gltf-model unlit id="imageloc" src="material/gallery/Startboard.glb" position="0 0.15 -3" rotation="0 -90 0"
             scale="1 1 1" material="shader:flat;side:back"></a-gltf-model>
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />

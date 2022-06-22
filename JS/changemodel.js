@@ -43,6 +43,7 @@ AFRAME.registerComponent('change-model', {
       {
         modellocation.setAttribute('visible','false');
         imagelocation.setAttribute('visible','true');
+        imagelocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
       }
       else if(evt.currentTarget.id.substring(0,1)=="m")
       {modellocation.setAttribute('visible','true');
