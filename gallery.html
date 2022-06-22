@@ -90,6 +90,24 @@
             scale="1 1 1" material="shader:flat;side:back"></a-gltf-model>
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
+            <img id="ahribut" src="material/gallery/button/ahri_but.jpg" crossorigin="anonymous" />
+            <img id="cagebut" src="material/gallery/button/cage_but.jpg" crossorigin="anonymous" />
+            <img id="cinemabut" src="material/gallery/button/cinema_but.jpg" crossorigin="anonymous" />
+            <img id="fishbut" src="material/gallery/button/fish_but.jpg" crossorigin="anonymous" />
+            <img id="hotelbut" src="material/gallery/button/hotel_but.jpg" crossorigin="anonymous" />
+            <img id="howbut" src="material/gallery/button/how_but.jpg" crossorigin="anonymous" />
+            <img id="jeannebut" src="material/gallery/button/jeanne_but.jpg" crossorigin="anonymous" />
+            <img id="lightbut" src="material/gallery/button/light_but.jpg" crossorigin="anonymous" />
+            <img id="lilithbut" src="material/gallery/button/lilith_but.jpg" crossorigin="anonymous" />
+            <img id="live2dbut" src="material/gallery/button/live2d_but.jpg" crossorigin="anonymous" />
+            <img id="nezukobut" src="material/gallery/button/nezuko_but.jpg" crossorigin="anonymous" />
+            <img id="nftbut" src="material/gallery/button/nft_but.jpg" crossorigin="anonymous" />
+            <img id="pokemonbut" src="material/gallery/button/pokemon_but.jpg" crossorigin="anonymous" />
+            <img id="projectorbut" src="material/gallery/button/projector_but.jpg" crossorigin="anonymous" />
+            <img id="ROVbut" src="material/gallery/button/ROV_but.jpg" crossorigin="anonymous" />
+            <img id="searchlightbut" src="material/gallery/button/searchlight_but.jpg" crossorigin="anonymous" />
+            <img id="tamamobut" src="material/gallery/button/tamamo_but.jpg" crossorigin="anonymous" />
+            <img id="windowcagebut" src="material/gallery/button/windowcage_but.jpg" crossorigin="anonymous" />
             <a-mixin id="Exitframe" geometry="primitive: plane; width: 1; height: 1"
                 material="transparent: true; shader: flat;opacity:0"
                 animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
@@ -97,11 +115,13 @@
             <a-mixin id="Exitposter" geometry="primitive: plane; width: 1; height: 1"
                 material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
             </a-mixin>
-            <a-mixin id="frame" geometry="primitive: plane; width: 4; height: 1" material="color: white; shader: flat">
+            <a-mixin id="frame" geometry="primitive: plane; width: 4; height: 1.5"
+                material="color: white; shader: flat">
             </a-mixin>
-            <a-mixin id="poster" geometry="primitive: plane; width: 3.9; height: 0.9"
+            <a-mixin id="poster" geometry="primitive: plane; width: 3.9; height: 1.4"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0.005"></a-mixin>
             <img id="Description" src="material/tutorial.png" crossorigin="anonymous" />
+            <img id="P_ahri" src="material/gallery/des/ahri.jpg" crossorigin="anonymous" />
             <a-mixin id="manual" geometry="primitive: plane; width: 0.77; height: 1.4"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
         </a-assets>
@@ -127,71 +147,83 @@
         <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
         <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E">
         </a-entity>
-        <a-entity id="ui" position="1.315 1.925 -1.9">
+        <a-entity id="ui" position="1.317 1.925 -1.89">
             <!-- Poster menu -->
 
             <a-entity id="menu" rotation="0 -30 0" highlight>
 
 
-                <a-entity id="m_ahri" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_windowcage" position="0 0 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #windowcagebut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_cage" position="0 -0.1 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_cage" position="0 -0.15 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #cagebut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_fish" position="0 -0.2 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_ROV" position="0 -0.3 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #ROVbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_how" position="0 -0.3 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_searchlight" position="0 -0.45 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #searchlightbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_jeanne" position="0 -0.4 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_light" position="0 -0.6 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #lightbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_light" position="0 -0.5 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_projector" position="0 -0.75 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #projectorbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_lilith" position="0 -0.6 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_pokemon" position="0 -0.9 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #pokemonbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_pokemon" position="0 -0.7 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_fish" position="0 -1.05 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #fishbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_projector" position="0 -0.8 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_how" position="0 -1.2 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #howbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_ROV" position="0 -0.9 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_jeanne" position="0.4 0 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #jeannebut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_searchlight" position="0 -1 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_tamamo" position="0.4 -0.15 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #tamamobut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_tamamo" position="0 -1.1 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_lilith" position="0.4 -0.3 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #lilithbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="m_windowcage" position="0.4 0 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_ahri" position="0.4 -0.45 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #ahribut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="i_image" position="0.4 -0.1 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="m_nezuko" position="0.4 -0.6 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #nezukobut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="i_goodmonkey" position="0 -1.2 0" mixin="frame" scale="0.1 0.1 0.1"
+                <a-entity id="i_hotel" position="0.4 -0.75 0" mixin="frame" scale="0.1 0.1 0.1"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #hotelbut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="i_cinema" position="0.4 -0.9 0" mixin="frame" scale="0.1 0.1 0.1"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #cinemabut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="i_nft" position="0.4 -1.05 0" mixin="frame" scale="0.1 0.1 0.1"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #nftbut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="i_live2d" position="0.4 -1.2 0" mixin="frame" scale="0.1 0.1 0.1"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #live2dbut" mixin="poster"></a-entity>
                 </a-entity>
 
             </a-entity>

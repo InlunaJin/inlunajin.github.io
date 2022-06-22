@@ -32,6 +32,7 @@ AFRAME.registerComponent('change-model', {
      
       var modellocation = document.getElementById('modelloc');
       var imagelocation = document.getElementById('imageloc');
+      var leftboard = document.getElementById('Description');
       var SelectModel = this.ModelBut[evt.currentTarget.id];
       
       if(evt.currentTarget.id == 'ExitButton')
@@ -47,8 +48,11 @@ AFRAME.registerComponent('change-model', {
       {modellocation.setAttribute('visible','true');
       imagelocation.setAttribute('visible','false');
         modellocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
+        
+        document.getElementById('tell').setAttribute('material','src:#P_ahri');
       }
 
+      
     },
   
     onBackgroundClick: function (evt) {
