@@ -74,39 +74,46 @@
 </head>
 
 <body>
-    <script type="text/javascript">AFRAME.registerComponent('unlit', {
+    <script type="text/javascript">
+    AFRAME.registerComponent('unlit', {
 
-    init: function () {
+            init: function () {
 
-        function recursivelySetChildrenUnlit(mesh) {
+                function recursivelySetChildrenUnlit(mesh) {
 
-            if (mesh.material && mesh.material.map) {
-                mesh.material = new THREE.MeshBasicMaterial({ map: mesh.material.map });
-            }
+                    if (mesh.material && mesh.material.map) {
+                        mesh.material = new THREE.MeshBasicMaterial({ map: mesh.material.map });
+                    }
 
-            if (mesh.children) {
-                for (var i = 0; i < mesh.children.length; i++) {
-                    recursivelySetChildrenUnlit(mesh.children[i]);
+                    if (mesh.children) {
+                        for (var i = 0; i < mesh.children.length; i++) {
+                            recursivelySetChildrenUnlit(mesh.children[i]);
+                        }
+                    }
                 }
+
+                this.el.addEventListener('model-loaded', (e) => {
+
+                    const mesh = e.target.getObject3D('mesh');
+                    for (var i = 0; i < mesh.children.length; i++) {
+                        recursivelySetChildrenUnlit(mesh.children[i]);
+                    }
+
+                });
             }
-        }
+        });</script>
 
-        this.el.addEventListener('model-loaded', (e) => {
 
-            const mesh = e.target.getObject3D('mesh');
-            for (var i = 0; i < mesh.children.length; i++) {
-                recursivelySetChildrenUnlit(mesh.children[i]);
-            }
-
-        });
-    }
-});</script>
-    
-    
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
-        info-message="htmlSrc: #messageText" vr-mode-ui="arEnabled: false">
+        info-message="htmlSrc: #messageText" vr-mode-ui="enabled: false">
         <a-gltf-model id="scenemodel" src="material/Gallery.glb" position="0 0 0" material="shader: flat">
         </a-gltf-model>
+        <img id="tutorialposter" src="material/loading.png" crossorigin="anonymous" />
+        <a-mixin id="tutorialframe" geometry="primitive: plane; width: 0.3; height: 0.5"
+        material="transparent: true; shader: flat;opacity:0"></a-mixin>
+        <a-mixin id="tutorialimage" geometry="primitive: plane; width: 0.3; height: 0.5"
+        material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+      </a-mixin>
         <a-entity light="type: ambient; color: #BBB"></a-entity>
         <a-entity light="type: point; intensity: 1; distance: 10; decay: 5" position="-0.5 3 -2"></a-entity>
         <a-entity light="type: point; intensity: 1; distance: 10; decay: 5" position="0.5 3 -2"></a-entity>
@@ -165,7 +172,9 @@
             look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true">
             <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
                 material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-            </a-entity>
+            </a-entity><a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button" visible  = "false">
+                <a-entity id="TurPoster" material="src: #tutorialposter" mixin="tutorialimage"></a-entity>
+              </a-entity>
 
         </a-entity>
         <a-entity id="ExitButton" position="0 1 2" rotation="0 180 0" mixin="Exitframe" class="raycastable menu-button">

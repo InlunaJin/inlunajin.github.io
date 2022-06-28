@@ -1,5 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('change-model', {
+  
     init: function () {
       var buttonEls = document.querySelectorAll('.menu-button');
       var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
@@ -39,6 +40,12 @@ AFRAME.registerComponent('change-model', {
       {
         window.location.href = SelectModel.modelname;
       }
+      else if(evt.currentTarget.id == 'TutorialButton')
+      {
+         
+        document.querySelector('#TutorialButton').object3D.visible = false;
+        document.querySelector('#TurPoster').object3D.visible = false;
+      }
       else if(evt.currentTarget.id.substring(0,1)=="i")
       {
         modellocation.setAttribute('visible','false');
@@ -51,6 +58,16 @@ AFRAME.registerComponent('change-model', {
         modellocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
         
         document.getElementById('tell').setAttribute('material','src:#P_ahri');
+
+        var cookiename = getCookie(evt.currentTarget.id.substring(2,100));
+        if (cookiename != "") {
+            
+        } else {
+
+          document.querySelector('#TutorialButton').object3D.visible = true;
+          document.querySelector('#TurPoster').object3D.visible = true;
+          setCookie(evt.currentTarget.id.substring(2,100),"1hour",1);
+        }
       }
 
       
@@ -61,5 +78,21 @@ AFRAME.registerComponent('change-model', {
       this.el.object3D.scale.set(0.001, 0.001, 0.001);
       this.el.object3D.visible = false;
       this.fadeBackgroundEl.object3D.visible = false;
-    }
+    },
+    
+     setCookie:function(cname, cvalue, exhour) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + "; " + expires;
+  } , getCookie:function(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+          var c = ca[i].trim();
+          if (c.indexOf(name) == 0)
+              return c.substring(name.length, c.length);
+      }
+      return "";
+  }
   });

@@ -39,7 +39,7 @@ AFRAME.registerComponent('to-link', {
       document.querySelector('#TutorialButton').object3D.visible = false;
       document.querySelector('#TurPoster').object3D.visible = false;
       //evt.currentTarget.object3D.scale.set (2, 2, 2);
-      sweetAlert('Hello World!');
+      
      // evt.currentTarget.object3D.visible = false;
     }
     else{
