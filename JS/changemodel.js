@@ -68,7 +68,7 @@ AFRAME.registerComponent('change-model', {
         if (cookiename != "") {
 
         } else {
-          document.querySelector('#TutorialButton').object3D.position.set(0,0,-0.5);
+          document.querySelector('#TutorialButton').object3D.position.set(0,0.2,-0.5);
           document.querySelector('#TutorialButton').object3D.visible = true;
           document.querySelector('#TurPoster').object3D.visible = true;
           setCookie(evt.currentTarget.id.substring(2,100),"1hour",1);
