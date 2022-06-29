@@ -75,7 +75,7 @@
 
 <body>
     <script type="text/javascript">
-    AFRAME.registerComponent('unlit', {
+        AFRAME.registerComponent('unlit', {
 
             init: function () {
 
@@ -110,10 +110,18 @@
         </a-gltf-model>
         <img id="tutorialposter" src="material/loading.png" crossorigin="anonymous" />
         <a-mixin id="tutorialframe" geometry="primitive: plane; width: 0.3; height: 0.5"
-        material="transparent: true; shader: flat;opacity:0"></a-mixin>
+            material="transparent: true; shader: flat;opacity:0"></a-mixin>
         <a-mixin id="tutorialimage" geometry="primitive: plane; width: 0.3; height: 0.5"
-        material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
-      </a-mixin>
+            material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+        </a-mixin>
+
+        <img id="youtubeposter" src="material/youtube.png" crossorigin="anonymous" />
+        <a-mixin id="youtubeframe" geometry="primitive: plane; width: 0.2; height: 0.2"
+            material="transparent: true; shader: flat;opacity:0"></a-mixin>
+        <a-mixin id="youtubeimage" geometry="primitive: plane; width: 0.2; height: 0.2"
+            material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
+        </a-mixin>
+
         <a-entity light="type: ambient; color: #BBB"></a-entity>
         <a-entity light="type: point; intensity: 1; distance: 10; decay: 5" position="-0.5 3 -2"></a-entity>
         <a-entity light="type: point; intensity: 1; distance: 10; decay: 5" position="0.5 3 -2"></a-entity>
@@ -122,7 +130,7 @@
             material="shader:flat;side:back"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 30000;easing: linear" visible='false'>
         </a-gltf-model>
-        <a-gltf-model unlit id="imageloc" src="material/gallery/Startboard.glb" position="0 0.15 -3" rotation="0 -90 0"
+        <a-gltf-model unlit id="imageloc" src="material/gallery/galleryinfo.glb" position="0 0.15 -3" rotation="0 -90 0"
             scale="1 1 1" material="shader:flat;side:back"></a-gltf-model>
         <a-assets>
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
@@ -156,8 +164,27 @@
             </a-mixin>
             <a-mixin id="poster" geometry="primitive: plane; width: 3.9; height: 1.4"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0.005"></a-mixin>
-            <img id="Description" src="material/tutorial.png" crossorigin="anonymous" />
+            <img id="Description" src="material/gallery/des/base_des.jpg" crossorigin="anonymous" />
             <img id="P_ahri" src="material/gallery/des/ahri.jpg" crossorigin="anonymous" />
+            <img id="P_hotel" src="material/gallery/des/hotel_des.jpg" crossorigin="anonymous" />
+            <img id="P_cage" src="material/gallery/des/cage_des.jpg" crossorigin="anonymous" />
+            <img id="P_cinema" src="material/gallery/des/cinema_des.jpg" crossorigin="anonymous" />
+            <img id="P_fish" src="material/gallery/des/fish_des.jpg" crossorigin="anonymous" />
+            <img id="P_hotel" src="material/gallery/des/hotel_des.jpg" crossorigin="anonymous" />
+            <img id="P_how" src="material/gallery/des/how_des.jpg" crossorigin="anonymous" />
+            <img id="P_jeanne" src="material/gallery/des/jeanne_des.jpg" crossorigin="anonymous" />
+            <img id="P_light" src="material/gallery/des/light_des.jpg" crossorigin="anonymous" />
+            <img id="P_lilith" src="material/gallery/des/lilith_des.jpg" crossorigin="anonymous" />
+            <img id="P_live2d" src="material/gallery/des/live2d_des.jpg" crossorigin="anonymous" />
+            <img id="P_nezuko" src="material/gallery/des/nezuko_des.jpg" crossorigin="anonymous" />
+            <img id="P_nft" src="material/gallery/des/nft_des.jpg" crossorigin="anonymous" />
+            <img id="P_pokemon" src="material/gallery/des/pokemon_des.jpg" crossorigin="anonymous" />
+            <img id="P_projector" src="material/gallery/des/projector_des.jpg" crossorigin="anonymous" />
+            <img id="P_ROV" src="material/gallery/des/ROV_des.jpg" crossorigin="anonymous" />
+            <img id="P_searchlight" src="material/gallery/des/searchlight_des.jpg" crossorigin="anonymous" />
+            <img id="P_tamamo" src="material/gallery/des/tamamo_des.jpg" crossorigin="anonymous" />
+            <img id="P_windowcage" src="material/gallery/des/windowcage_des.jpg" crossorigin="anonymous" />
+
             <a-mixin id="manual" geometry="primitive: plane; width: 0.77; height: 1.4"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
         </a-assets>
@@ -172,9 +199,11 @@
             look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true">
             <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
                 material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-            </a-entity><a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button" visible  = "false">
+            </a-entity>
+            <a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button"
+                visible="false">
                 <a-entity id="TurPoster" material="src: #tutorialposter" mixin="tutorialimage"></a-entity>
-              </a-entity>
+            </a-entity>
 
         </a-entity>
         <a-entity id="ExitButton" position="0 1 2" rotation="0 180 0" mixin="Exitframe" class="raycastable menu-button">
@@ -270,7 +299,13 @@
 
             </a-entity>
         </a-entity>
-        <a-entity id="tell" material="src: #Description" mixin="manual" position="-1.50 1.3 -1.78" rotation="0 30 0">
+        <a-entity id="tell" material="src: #Description" mixin="manual" position="-1.50 1.3 -1.79" rotation="0 30 0">
+            <a-entity id="YoutubeButton" position="0.245 -0.57 0.005" mixin="youtubeframe" class="raycastable menu-button"
+            visible="true">
+            <a-entity id="youPoster" material="src: #youtubeposter" mixin="youtubeimage"></a-entity>
+        </a-entity>
+        </a-entity>
+        
         </a-entity>
     </a-scene>
 </body>

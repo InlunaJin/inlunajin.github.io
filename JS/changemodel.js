@@ -40,6 +40,10 @@ AFRAME.registerComponent('change-model', {
       {
         window.location.href = SelectModel.modelname;
       }
+     else if(evt.currentTarget.id == 'YoutubeButton')
+      {
+        window.location.href = "https://www.youtube.com/";
+      }
       else if(evt.currentTarget.id == 'TutorialButton')
       {
         document.querySelector('#TutorialButton').object3D.position.set(100,100,100);
@@ -51,13 +55,14 @@ AFRAME.registerComponent('change-model', {
         modellocation.setAttribute('visible','false');
         imagelocation.setAttribute('visible','true');
         imagelocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
+        document.getElementById('tell').setAttribute('material','src:#P_'+evt.currentTarget.id.substring(2,100));
       }
       else if(evt.currentTarget.id.substring(0,1)=="m")
       {modellocation.setAttribute('visible','true');
       imagelocation.setAttribute('visible','false');
         modellocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
         
-        document.getElementById('tell').setAttribute('material','src:#P_ahri');
+        document.getElementById('tell').setAttribute('material','src:#P_'+evt.currentTarget.id.substring(2,100));
 
         var cookiename = getCookie(evt.currentTarget.id.substring(2,100));
         if (cookiename != "") {
