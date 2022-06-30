@@ -58,7 +58,13 @@ AFRAME.registerComponent('change-model', {
         document.getElementById('tell').setAttribute('material','src:#P_'+evt.currentTarget.id.substring(2,100));
       }
       else if(evt.currentTarget.id.substring(0,1)=="m")
-      {modellocation.setAttribute('visible','true');
+      {
+        THREE.Cache.clear();
+        modellocation.setAttribute('visible','true');
+        
+       
+        
+        
       imagelocation.setAttribute('visible','false');
         modellocation.setAttribute('gltf-model','material/gallery/'+evt.currentTarget.id.substring(2,100)+'.glb');
         
