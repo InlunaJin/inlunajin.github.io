@@ -77,7 +77,7 @@ AFRAME.registerComponent('change-model', {
           document.querySelector('#TutorialButton').object3D.position.set(0,0.2,-0.5);
           document.querySelector('#TutorialButton').object3D.visible = true;
           document.querySelector('#TurPoster').object3D.visible = true;
-          setCookie(evt.currentTarget.id.substring(2,100),"1hour",10);
+          setCookie(evt.currentTarget.id.substring(2,100),"1hour",0.2);
         }
       }
 
@@ -93,7 +93,7 @@ AFRAME.registerComponent('change-model', {
     
      setCookie:function(cname, cvalue, exmin) {
       var d = new Date();
-      d.setTime(d.getTime() + (exmin  * 60 * 1000));
+      d.setTime(d.getTime() + (exmin*60  * 60 * 1000));
       var expires = "expires=" + d.toGMTString();
       document.cookie = cname + "=" + cvalue + "; " + expires;
   } , getCookie:function(cname) {
