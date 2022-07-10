@@ -109,7 +109,7 @@
         </a-gltf-model>
         <a-entity light="type: point; color: #FFF; intensity: 1.5" position="0 50 0"></a-entity>
 
-        <a-assets>
+        <a-assets timeout = "10000">
 
             <img id="youtubeposter" src="material/youtube.png" crossorigin="anonymous" />
             <a-mixin id="youtubeframe" geometry="primitive: plane; width: 0.2; height: 0.2"
@@ -118,9 +118,13 @@
                 material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
             </a-mixin>
 
+            <img id="fishbut" src="material/gallery/button/fish_but.jpg" crossorigin="anonymous" />
 
-            <video id="videoloc" autoplay loop="true" src="material/theater/Movie/fish.mp4"></video>
 
+            <video id="waterpool" loop="false" src="material/theater/Movie/Waterpool.mp4"></video>
+            <video id="fish" loop="false" src="material/theater/Movie/fish.mp4"></video>
+
+            
             <img id="Exitimg" src="material/exitarrow.png" crossorigin="anonymous" />
             <a-mixin id="Exitframe" geometry="primitive: plane; width: 1; height: 1"
                 material="transparent: true; shader: flat;opacity:0"
@@ -150,7 +154,7 @@
             </a-entity>
 
         </a-entity>
-        <a-video src="#videoloc" width="16" height="9" position="0 1.6 -5" scale="0.43 0.43 0.43"></a-video>
+        <a-video id = "videoloc" src="#waterpool" width="16" height="9" position="0 1.6 -5" scale="0.43 0.43 0.43"></a-video>
 
         <a-entity id="ExitButton" position="5.5 0.5 -3" rotation="0 -90 0" mixin="Exitframe"
             class="raycastable menu-button">
@@ -171,9 +175,9 @@
             <a-entity id="menu" rotation="0 0 0" highlight>
 
 
-                <a-entity id="goodmonkey" position="4 1.6 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_fish" position="4 1.6 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #fishbut" mixin="poster"></a-entity>
                 </a-entity>
                 <a-entity id="goodmonkey" position="4 1.29 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">

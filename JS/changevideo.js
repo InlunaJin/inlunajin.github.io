@@ -30,7 +30,8 @@ AFRAME.registerComponent('change-video', {
   
     onMenuButtonClick: function (evt) {
      
-      var modellocation = document.getElementById('modelloc');
+    
+    var videoframe = document.querySelector("#videoloc");
       var SelectModel = this.ModelBut[evt.currentTarget.id];
       if(evt.currentTarget.id == 'ExitButton')
       {
@@ -40,7 +41,10 @@ AFRAME.registerComponent('change-video', {
         window.location.href = "https://www.youtube.com/";
       }
       else{
-        modellocation.setAttribute('gltf-model',SelectModel.modelname);
+
+       // videoframe.setAttribute('material','src:#'+evt.currentTarget.id.substring(2,100));
+        videoframe.play();
+        THREE.Cache.clear();
       }
      
       
