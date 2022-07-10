@@ -58,9 +58,12 @@ AFRAME.registerComponent('change-video', {
       window.location.href = "https://www.youtube.com/";
     }
     else {
+     
       var oldvideo = getCookie("nowplaying");
+      if(oldvideo!="")
+      {
       document.querySelector('#'+oldvideo).pause();
-      document.querySelector('#'+oldvideo).currentTime = 0;
+      document.querySelector('#'+oldvideo).currentTime = 0;}
       videoframe.setAttribute('material', 'src:#' + evt.currentTarget.id.substring(2, 100));
       document.querySelector('#' + evt.currentTarget.id.substring(2, 100)).play();
       setCookie("nowplaying",evt.currentTarget.id.substring(2, 100),1);
