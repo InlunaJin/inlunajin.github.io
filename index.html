@@ -136,10 +136,10 @@
         </a-entity>
       </a-entity>
 
-      <a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
+      
 
       <a-camera position="0 0.5 2" wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false;reverse-mouse-drag:true">
-
+        <a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
         <a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button">
           <a-entity id="TurPoster" material="src: #tutorialposter" mixin="tutorialimage"></a-entity>
         </a-entity>
