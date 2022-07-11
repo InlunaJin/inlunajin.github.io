@@ -123,8 +123,17 @@
             material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
 
             
-            <img id="fishbut" src="material/gallery/button/fish_but.jpg" crossorigin="anonymous" />
-
+            <img id="fishbut" src="material/theater/but/fish_but.jpg" crossorigin="anonymous" />
+            <img id="waterpoolbut" src="material/theater/but/waterpool_but.jpg" crossorigin="anonymous" />
+            <img id="ARbut" src="material/theater/but/AR_but.jpg" crossorigin="anonymous" />
+            <img id="VRbut" src="material/theater/but/VR_but.jpg" crossorigin="anonymous" />
+            <img id="howbut" src="material/theater/but/how_but.jpg" crossorigin="anonymous" />
+            <img id="deepoceanbut" src="material/theater/but/deepocean_but.jpg" crossorigin="anonymous" />
+            <img id="live2Dbut" src="material/theater/but/live2D_but.jpg" crossorigin="anonymous" />
+            <img id="liveofbirdbut" src="material/theater/but/liveofbird_but.jpg" crossorigin="anonymous" />
+            <img id="logoutbut" src="material/theater/but/logout_but.jpg" crossorigin="anonymous" />
+            <img id="particlebut" src="material/theater/but/particle_but.jpg" crossorigin="anonymous" />
+            <img id="earthquakebut" src="material/theater/but/earthquake_but.jpg" crossorigin="anonymous" />
 
             <video id="waterpool" loop="false" src="material/theater/Movie/Waterpool.mp4"></video>
             <video id="fish" loop="false" src="material/theater/Movie/fish.mp4"></video>
@@ -189,49 +198,49 @@
             <a-entity id="menu" rotation="0 0 0" highlight>
 
 
-                <a-entity id="v_fish" position="4 1.6 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_deepocean" position="4 1.6 0" mixin="frame" scale="0.3 0.3 0.3"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #deepoceanbut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="v_liveofbird" position="4 1.29 0" mixin="frame" scale="0.3 0.3 0.3"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #liveofbirdbut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="v_waterpool" position="4 0.98 0" mixin="frame" scale="0.3 0.3 0.3"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #waterpoolbut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="v_earthquake" position="4 0.67 0" mixin="frame" scale="0.3 0.3 0.3"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #earthquakebut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="v_particle" position="4 0.36 0" mixin="frame" scale="0.3 0.3 0.3"
+                    class="raycastable menu-button">
+                    <a-entity material="src: #particlebut" mixin="poster"></a-entity>
+                </a-entity>
+                <a-entity id="v_fish" position="4 0.05 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #fishbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_waterpool" position="4 1.29 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_VR" position="4 -0.26 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
-                    <a-entity material="src: #fishbut" mixin="poster"></a-entity>
+                    <a-entity material="src: #VRbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_particle" position="4 0.98 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_AR" position="4 -0.57 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #ARbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_VR" position="4 0.67 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_how" position="4 -0.88 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
-                </a-entity>
-                <a-entity id="v_AR" position="4 0.36 0" mixin="frame" scale="0.3 0.3 0.3"
-                    class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
-                </a-entity>
-                <a-entity id="v_how" position="4 0.05 0" mixin="frame" scale="0.3 0.3 0.3"
-                    class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
-                </a-entity>
-                <a-entity id="v_liveofbird" position="4 -0.26 0" mixin="frame" scale="0.3 0.3 0.3"
-                    class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
-                </a-entity>
-                <a-entity id="v_deepocean" position="4 -0.57 0" mixin="frame" scale="0.3 0.3 0.3"
-                    class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
-                </a-entity>
-                <a-entity id="v_earthquake" position="4 -0.88 0" mixin="frame" scale="0.3 0.3 0.3"
-                    class="raycastable menu-button">
-                    <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                    <a-entity material="src: #howbut" mixin="poster"></a-entity>
                 </a-entity>
                 <a-entity id="v_live2D" position="4 -1.19 0" mixin="frame" scale="0.3 0.3 0.3"
                 class="raycastable menu-button">
-                <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                <a-entity material="src: #live2Dbut" mixin="poster"></a-entity>
             </a-entity>
             <a-entity id="v_logout" position="4 -1.5 0" mixin="frame" scale="0.3 0.3 0.3"
                 class="raycastable menu-button">
-                <a-entity material="src: #Aposter" mixin="poster"></a-entity>
+                <a-entity material="src: #logoutbut" mixin="poster"></a-entity>
             </a-entity>
                 <a-entity id="tolink" position="0 0 0.5" change-video visible="false" scale="0.001 0.001 0.001">
 
