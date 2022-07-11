@@ -89,7 +89,7 @@
 <body>
     <a-scene background="color: #FFFFFF" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
         info-message="htmlSrc: #messageText" vr-mode-ui="enabled: false">
-        <a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat">
+<a-gltf-model id="scenemodel" src="material/Theater.glb" position="0 0 0" material="shader: flat">
         </a-gltf-model>
         <a-gltf-model id="chair" src="material/TheaterChair.glb" position="0 0 0" material="shader: flat">
         </a-gltf-model>
@@ -117,7 +117,12 @@
             <a-mixin id="youtubeimage" geometry="primitive: plane; width: 0.2; height: 0.2"
                 material="color: white; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
             </a-mixin>
+            
+            <img id="loading" src="material/sceneloading.jpg" crossorigin="anonymous" />
+            <a-mixin id="loadingimg" geometry="primitive: plane; width: 4; height: 1"
+            material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
 
+            
             <img id="fishbut" src="material/gallery/button/fish_but.jpg" crossorigin="anonymous" />
 
 
@@ -146,7 +151,7 @@
             class="raycastable">
         </a-entity>
 
-
+        <a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
         <a-entity position="0 1.6 0" camera
             look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true">
             <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"

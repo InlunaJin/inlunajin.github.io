@@ -167,6 +167,11 @@
             <img id="searchlightbut" src="material/gallery/button/searchlight_but.jpg" crossorigin="anonymous" />
             <img id="tamamobut" src="material/gallery/button/tamamo_but.jpg" crossorigin="anonymous" />
             <img id="windowcagebut" src="material/gallery/button/windowcage_but.jpg" crossorigin="anonymous" />
+
+            <img id="loading" src="material/sceneloading.jpg" crossorigin="anonymous" />
+            <a-mixin id="loadingimg" geometry="primitive: plane; width: 4; height: 1"
+            material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
+
             <a-mixin id="Exitframe" geometry="primitive: plane; width: 1; height: 1"
                 material="transparent: true; shader: flat;opacity:0"
                 animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
@@ -209,6 +214,8 @@
             material="color: red; side: back; shader: flat" scale="0.001 0.001 0.001" visible="false"
             class="raycastable">
         </a-entity>
+
+<a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
 
         <a-entity position="0 1.6 0" camera
             look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true">

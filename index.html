@@ -90,6 +90,10 @@
       <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
         material="color: black; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005">
       </a-mixin>
+      
+      <img id="loading" src="material/sceneloading.jpg" crossorigin="anonymous" />
+      <a-mixin id="loadingimg" geometry="primitive: plane; width: 4; height: 1"
+      material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
 
       <a-mixin id="tutorialframe" geometry="primitive: plane; width: 0.3; height: 0.5"
         material="transparent: true; shader: flat;opacity:0"></a-mixin>
@@ -131,6 +135,9 @@
           <a-entity material="src: #movieposter" mixin="poster"></a-entity>
         </a-entity>
       </a-entity>
+
+      <a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
+
       <a-camera position="0 0.5 2" wasd-controls-enabled="false" look-controls="magicWindowTrackingEnabled: false;reverse-mouse-drag:true">
 
         <a-entity id="TutorialButton" position="0 0 -0.5" mixin="tutorialframe" class="raycastable menu-button">

@@ -90,6 +90,11 @@
         animation__scale_reverse="property: scale; to: 0.1 0.1 0.1; dur: 200; startEvents: mouseleave"></a-mixin>
       <a-mixin id="poster" geometry="primitive: plane; width: 1; height: 1"
         material="color: black; shader: flat;transparent: true" material="shader: flat" position="0 0 0.005"></a-mixin>
+
+        <img id="loading" src="material/sceneloading.jpg" crossorigin="anonymous" />
+        <a-mixin id="loadingimg" geometry="primitive: plane; width: 4; height: 1"
+        material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
+
     </a-assets>
     <a-entity id="ExitButton" position="-2.5 1 -0.5" rotation="0 90 0" scale="0.8 0.8 0.8" mixin="frame"
       class="raycastable menu-button">
@@ -103,6 +108,7 @@
       class="raycastable menu-button">
       <a-entity material="src: #movieposter" mixin="poster"></a-entity>
     </a-entity>
+    <a-entity material="src: #loading" mixin="loadingimg" position = "0 30 -50" scale = "7 7 7"></a-entity>
     <a-entity position="0 1.2 -0.3" camera
       look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;reverse-mouse-drag:true" >
       <a-entity id="fadeBackground" geometry="primitive: sphere; radius: 2.5"
