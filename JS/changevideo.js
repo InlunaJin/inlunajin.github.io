@@ -68,7 +68,7 @@ AFRAME.registerComponent('change-video', {
       document.querySelector('#' + evt.currentTarget.id.substring(2, 100)).play();
       setCookie("nowplaying",evt.currentTarget.id.substring(2, 100),1);
       prevvid = evt.currentTarget.id.substring(2, 100);
-
+      document.getElementById('tell').setAttribute('material','src:#P_'+evt.currentTarget.id.substring(2,100));
       THREE.Cache.clear();
     }
 

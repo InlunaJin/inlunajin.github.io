@@ -122,7 +122,7 @@
             <a-mixin id="loadingimg" geometry="primitive: plane; width: 4; height: 1"
             material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
 
-            
+            <img id="theaterinfo" src="material/theater/theaterinfo.png" crossorigin="anonymous" />
             <img id="fishbut" src="material/theater/but/fish_but.jpg" crossorigin="anonymous" />
             <img id="waterpoolbut" src="material/theater/but/waterpool_but.jpg" crossorigin="anonymous" />
             <img id="ARbut" src="material/theater/but/AR_but.jpg" crossorigin="anonymous" />
@@ -133,14 +133,14 @@
             <img id="liveofbirdbut" src="material/theater/but/liveofbird_but.jpg" crossorigin="anonymous" />
             <img id="logoutbut" src="material/theater/but/logout_but.jpg" crossorigin="anonymous" />
             <img id="particlebut" src="material/theater/but/particle_but.jpg" crossorigin="anonymous" />
-            <img id="earthquakebut" src="material/theater/but/earthquake_but.jpg" crossorigin="anonymous" />
+            <img id="pythonbut" src="material/theater/but/python_but.jpg" crossorigin="anonymous" />
 
             <video id="waterpool" loop="false" src="material/theater/Movie/Waterpool.mp4"></video>
             <video id="fish" loop="false" src="material/theater/Movie/fish.mp4"></video>
             <video id="AR" loop="false" src="material/theater/Movie/AR.mp4"></video>
             <video id="VR" loop="false" src="material/theater/Movie/VR.mp4"></video>
             <video id="deepocean" loop="false" src="material/theater/Movie/DeepOcean.mp4"></video>
-            <video id="earthquake" loop="false" src="material/theater/Movie/earthquake.mp4"></video>
+            <video id="python" loop="false" src="material/theater/Movie/python.mp4"></video>
             <video id="how" loop="false" src="material/theater/Movie/how.mp4"></video>
             <video id="live2D" loop="false" src="material/theater/Movie/live2D.mp4"></video>
             <video id="liveofbird" loop="false" src="material/theater/Movie/liveofbird.mp4"></video>
@@ -159,7 +159,20 @@
             </a-mixin>
             <a-mixin id="poster" geometry="primitive: plane; width: 5.9; height: 0.9"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0.005"></a-mixin>
-            <img id="Description" src="material/gallery/des/moviebase_des.jpg" crossorigin="anonymous" />
+            <img id="Description" src="material/theater/des/movie_des.jpg" crossorigin="anonymous" />
+            
+            <img id="P_waterpool" src="material/theater/des/waterpool_des.jpg" crossorigin="anonymous" />
+            <img id="P_liveofbird" src="material/theater/des/liveofbird_des.jpg" crossorigin="anonymous" />
+            <img id="P_logout" src="material/theater/des/logout.jpg" crossorigin="anonymous" />
+            <img id="P_deepocean" src="material/theater/des/deepocean_des.jpg" crossorigin="anonymous" />
+            <img id="P_fish" src="material/theater/des/fish_des.jpg" crossorigin="anonymous" />
+            <img id="P_VR" src="material/theater/des/VR_des.jpg" crossorigin="anonymous" />
+            <img id="P_how" src="material/theater/des/how_des.jpg" crossorigin="anonymous" />
+            <img id="P_AR" src="material/theater/des/AR_des.jpg" crossorigin="anonymous" />
+            <img id="P_python" src="material/theater/des/python_des.jpg" crossorigin="anonymous" />
+            <img id="P_particle" src="material/theater/des/particle_des.jpg" crossorigin="anonymous" />
+            <img id="P_live2D" src="material/theater/des/live2D_des.jpg" crossorigin="anonymous" />
+           
             <a-mixin id="manual" geometry="primitive: plane; width: 0.77; height: 1.4"
                 material="color: white; shader: flat" material="shader: flat" position="0 0 0"></a-mixin>
         </a-assets>
@@ -177,7 +190,7 @@
             </a-entity>
 
         </a-entity>
-        <a-video id = "videoloc" src="#waterpool" width="16" height="9" position="0 1.6 -5" scale="0.43 0.43 0.43"></a-video>
+        <a-video id = "videoloc" src="#theaterinfo" width="16" height="9" position="0 1.6 -5" scale="0.43 0.43 0.43"></a-video>
 
         <a-entity id="ExitButton" position="5.5 0.5 -3" rotation="0 -90 0" mixin="Exitframe"
             class="raycastable menu-button">
@@ -210,31 +223,31 @@
                     class="raycastable menu-button">
                     <a-entity material="src: #waterpoolbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_earthquake" position="4 0.67 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_python" position="4 -1.19 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
-                    <a-entity material="src: #earthquakebut" mixin="poster"></a-entity>
+                    <a-entity material="src: #pythonbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_particle" position="4 0.36 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_particle" position="4 0.67 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #particlebut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_fish" position="4 0.05 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_fish" position="4 0.36 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #fishbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_VR" position="4 -0.26 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_VR" position="4 0.05 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #VRbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_AR" position="4 -0.57 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_AR" position="4 -0.26 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #ARbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_how" position="4 -0.88 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_how" position="4 -0.57 0" mixin="frame" scale="0.3 0.3 0.3"
                     class="raycastable menu-button">
                     <a-entity material="src: #howbut" mixin="poster"></a-entity>
                 </a-entity>
-                <a-entity id="v_live2D" position="4 -1.19 0" mixin="frame" scale="0.3 0.3 0.3"
+                <a-entity id="v_live2D" position="4 -0.88 0" mixin="frame" scale="0.3 0.3 0.3"
                 class="raycastable menu-button">
                 <a-entity material="src: #live2Dbut" mixin="poster"></a-entity>
             </a-entity>
@@ -247,7 +260,7 @@
                 </a-entity>
                 <a-entity id="tell" material="src: #Description" mixin="manual" position="-4 0.04 0" scale="2.5 2.5 2.5"
                     rotation="0 0 0">
-                    <a-entity id="YoutubeButton" position="0.245 -0.57 0.005" mixin="youtubeframe"
+                    <a-entity id="YoutubeButton" position="0.245 -0.6 0.005" mixin="youtubeframe"
                     class="raycastable menu-button" visible="true">
                     <a-entity id="youPoster" material="src: #youtubeposter" mixin="youtubeimage"></a-entity>
                 </a-entity>
