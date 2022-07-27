@@ -55,7 +55,7 @@ AFRAME.registerComponent('change-video', {
     if (evt.currentTarget.id == 'ExitButton') {
       window.location.href = SelectModel.modelname;
     } else if (evt.currentTarget.id == 'YoutubeButton') {
-      window.location.href = "https://www.youtube.com/";
+      window.location.href = "https://youtube.com/playlist?list=PLKebdc9CwOuUNL1PFo2vF3wRb9lA0toMV";
     }
     else {
      

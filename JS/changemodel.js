@@ -42,7 +42,7 @@ AFRAME.registerComponent('change-model', {
       }
      else if(evt.currentTarget.id == 'YoutubeButton')
       {
-        window.location.href = "https://www.youtube.com/";
+        window.location.href = "https://www.youtube.com/watch?v=QKdk8Z7HM1g&list=PLKebdc9CwOuUNL1PFo2vF3wRb9lA0toMV&index=14";
       }
       else if(evt.currentTarget.id == 'TutorialButton')
       {
