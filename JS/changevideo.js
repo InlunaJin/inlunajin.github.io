@@ -63,7 +63,32 @@ AFRAME.registerComponent('change-video', {
       if(oldvideo!="")
       {
       document.querySelector('#'+oldvideo).pause();
+     
       document.querySelector('#'+oldvideo).currentTime = 0;}
+
+      document.querySelector('#waterpool').pause();
+      document.querySelector('#fish').pause();
+      document.querySelector('#AR').pause();
+      document.querySelector('#VR').pause();
+      document.querySelector('#deepocean').pause();
+      document.querySelector('#python').pause();
+      document.querySelector('#how').pause();
+      document.querySelector('#live2D').pause();
+      document.querySelector('#liveofbird').pause();
+      document.querySelector('#logout').pause();
+      document.querySelector('#particle').pause();
+      document.querySelector('#waterpool').currentTime = 0;
+      document.querySelector('#fish').currentTime = 0;
+      document.querySelector('#AR').currentTime = 0;
+      document.querySelector('#VR').currentTime = 0;
+      document.querySelector('#deepocean').currentTime = 0;
+      document.querySelector('#python').currentTime = 0;
+      document.querySelector('#how').currentTime = 0;
+      document.querySelector('#live2D').currentTime = 0;
+      document.querySelector('#liveofbird').currentTime = 0;
+      document.querySelector('#logout').currentTime = 0;
+      document.querySelector('#particle').currentTime = 0;
+
       videoframe.setAttribute('material', 'src:#' + evt.currentTarget.id.substring(2, 100));
       document.querySelector('#' + evt.currentTarget.id.substring(2, 100)).play();
       setCookie("nowplaying",evt.currentTarget.id.substring(2, 100),1);
