@@ -41,10 +41,18 @@
                 {
                   icon: 'info',
                   title: '歡迎進入林迺鈞的作品集',
-                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-                  footer: '使用行動數據請注意流量'
+                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理<br><br>或點擊Website按鈕進入普通網頁</b>',
+                  footer: '使用行動數據請注意流量',
+                  showDenyButton : true,
+                                   denyButtonText: `Website`,
                 }
-              )
+              ).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                    } else {
+                                        window.location.href = "https://inlunajin.wixsite.com/linnaijun";
+                                    }
+                                })
             }, 1500);
           }
           else {
@@ -54,10 +62,18 @@
                 {
                   icon: 'info',
                   title: '歡迎進入林迺鈞的作品集',
-                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理</b>',
-                  footer: '使用行動數據請注意流量'
+                  html: '<b>本網頁以3D方式呈現<br>場景讀取會花費較長時間<br>請耐心等待<br><br>如顯示錯誤請切換至良好網路環境並重新整理<br><br>或點擊Website按鈕進入普通網頁</b>',
+                  footer: '使用行動數據請注意流量',
+                  showDenyButton : true,
+                                   denyButtonText: `Website`,
                 }
-              )
+              ).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                    } else {
+                                        window.location.href = "https://inlunajin.wixsite.com/linnaijun";
+                                    }
+                                })
             }, 500);
 
           }
